@@ -30,7 +30,9 @@ export default function InputField({
                 type={type}
                 placeholder={placeholder}
                 {...register(name)}
-                className="w-full border px-3 py-2 text-base md:text-lg border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                className={`w-full border px-3 py-2 text-base md:text-lg rounded-lg outline-none transition-all
+        ${errors[name] ? "border-red-500 focus:border-red-500" : "border-gray-300 focus:border-blue-500"}
+        focus:ring-1 focus:ring-blue-500`}
             />
             {errors[name] && (
                 <p className="text-red-500 text-sm mt-1">{errors[name]?.message}</p>

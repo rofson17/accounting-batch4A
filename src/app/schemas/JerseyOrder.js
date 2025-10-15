@@ -53,8 +53,7 @@ const JerseyOrderSchema = new mongoose.Schema(
             },
         },
 
-        // (Optional) Proof of Payment Screenshot URL
-        paymentScreenshot: {
+        transactionScreenshot: {
             type: String,
             default: null,
         },

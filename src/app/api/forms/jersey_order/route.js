@@ -5,11 +5,52 @@ import { NextResponse } from "next/server"
 export const GET = async (req) => {
     try {
 
-    } catch (error) {
-        return NextResponse.json({ message: "server error" }, { status: 500 })
-    }
-}
+        await dbConnect();
+        const { searchParams } = new URL(req.url);
+        const query = searchParams.get("query") || "";
+        const page = parseInt(searchParams.get("page")) || 1;
+        const limit = parseInt(searchParams.get("limit")) || 5;
+        const skip = (page - 1) * limit;
 
+        const searchCondition = query
+            ? {
+                $or: [
+                    { name: { $regex: query, $options: "i" } },
+                    { email: { $regex: query, $options: "i" } },
+                    { studentId: { $regex: query, $options: "i" } },
+                    { phone: { $regex: query, $options: "i" } },
+                ],
+            }
+            : {};
+
+        const [orders, totalCount] = await Promise.all([
+            JerseyOrder.find(searchCondition)
+                .sort({ createdAt: -1 })
+                .skip(skip)
+                .limit(limit),
+            JerseyOrder.countDocuments(searchCondition),
+        ]);
+
+        const totalPages = Math.ceil(totalCount / limit);
+        console.log(totalCount, totalPages);
+
+        return NextResponse.json({
+            success: true,
+            orders,
+            totalPages,
+            totalCount,
+            currentPage: page,
+        })
+
+    } catch (error) {
+        console.error("Error fetching orders:", error);
+        return new Response(
+            JSON.stringify({ message: "Failed to fetch orders" }),
+            { status: 500, headers: { "Content-Type": "application/json" } }
+        );
+    }
+
+}
 
 
 export const POST = async (req) => {

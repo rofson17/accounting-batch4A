@@ -11,6 +11,7 @@ import axios from "axios";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
 import { useState } from "react";
+import { IoCameraOutline } from "react-icons/io5";
 
 // validation Schema
 const schema = yup.object().shape({
@@ -96,6 +97,19 @@ const Jersey_2025 = () => {
                             <Input name="phone" label="Phone Number" placeholder="Enter phone number" />
                             <Input name="jerseyNumber" label="Jersey Number" placeholder="Enter jersey number" />
 
+                            {/* Jersey Size */}
+                            <div className="md:col-span-2 space-y-2">
+                                <p className="font-medium">Jersey Size</p>
+                                <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+                                    {["S", "M", "L", "XL", "XXL"].map((size) => (
+                                        <RadioInput key={size} label={size} name="size" value={size} />
+                                    ))}
+                                </div>
+                                {formState.errors.size && (
+                                    <p className="text-red-500 text-sm mt-1">{formState.errors.size.message}</p>
+                                )}
+                            </div>
+
                             {/* Sleeves */}
                             <div className="md:col-span-2 space-y-2">
                                 <p className="font-medium">Sleeves</p>
@@ -139,7 +153,7 @@ const Jersey_2025 = () => {
                                         <CldUploadWidget
                                             signatureEndpoint="/api/cloudinary/signature"
                                             cloudName={process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}
-                                            options={{ sources: ['local', 'camera', 'google_drive'] }}
+                                            options={{ sources: ['local', 'camera', 'google_drive'], showCompletedButton: false, showPoweredBy: false }}
                                             resourceType="image"
                                             onSuccess={(result) => {
                                                 // console.log(result)
@@ -153,10 +167,10 @@ const Jersey_2025 = () => {
                                                 <button
                                                     type="button"
                                                     onClick={() => open()}
-                                                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 "
+                                                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 flex justify-center items-center"
 
                                                 >
-                                                    Upload Screenshot
+                                                    <IoCameraOutline className="text-2xl mr-2" /> Upload Screenshot
                                                 </button>
                                             )}
                                         </CldUploadWidget>
@@ -174,18 +188,7 @@ const Jersey_2025 = () => {
                                 </>
                             )}
 
-                            {/* Jersey Size */}
-                            <div className="md:col-span-2 space-y-2">
-                                <p className="font-medium">Jersey Size</p>
-                                <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
-                                    {["S", "M", "L", "XL", "XXL"].map((size) => (
-                                        <RadioInput key={size} label={size} name="size" value={size} />
-                                    ))}
-                                </div>
-                                {formState.errors.size && (
-                                    <p className="text-red-500 text-sm mt-1">{formState.errors.size.message}</p>
-                                )}
-                            </div>
+
                         </div>
 
                         <div className="mt-8 flex justify-center">
@@ -201,7 +204,7 @@ const Jersey_2025 = () => {
                 </form>
             </div>
         </FormProvider>
-    );
-};
+    )
+}
 
 export default Jersey_2025;

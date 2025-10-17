@@ -29,10 +29,32 @@ export const GET = async (req) => {
                 .skip(skip)
                 .limit(limit),
             JerseyOrder.countDocuments(searchCondition),
-        ]);
+        ])
 
         const totalPages = Math.ceil(totalCount / limit);
-        console.log(totalCount, totalPages);
+        // console.log(totalCount, totalPages);
+
+
+        const allOrders = await JerseyOrder.find(searchCondition);
+
+        const sizeCounts = allOrders.reduce((acc, order) => {
+            const size = order.size?.toUpperCase();
+            const sleeve = order.sleeves?.toLowerCase();
+
+            if (!size) return acc;
+
+            if (!acc[size]) acc[size] = { short: 0, long: 0, total: 0 };
+
+
+            if (sleeve === "short") acc[size].short += 1;
+            else if (sleeve === "long") acc[size].long += 1;
+            else acc[size].total += 1;
+            acc[size].total = acc[size].short + acc[size].long;
+
+            return acc;
+        }, {})
+
+
 
         return NextResponse.json({
             success: true,
@@ -40,6 +62,7 @@ export const GET = async (req) => {
             totalPages,
             totalCount,
             currentPage: page,
+            sizeCounts,
         })
 
     } catch (error) {

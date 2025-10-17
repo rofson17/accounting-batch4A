@@ -3,14 +3,23 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Loader2, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { FiLogOut } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 
-export default function DashboardPage() {
+const Dashboard = () => {
     const [orders, setOrders] = useState([]);
+    const [sizeCounts, setSizeCounts] = useState({});
     const [query, setQuery] = useState("");
     const [page, setPage] = useState(1);
     const [limit] = useState(5);
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
+
+    useEffect(() => {
+        const auth = localStorage.getItem("auth");
+        if (auth !== "true") router.push("/login");
+    }, [router]);
 
     const fetchOrders = async () => {
         try {
@@ -22,6 +31,7 @@ export default function DashboardPage() {
             if (response.data.success) {
                 setOrders(response.data.orders);
                 setTotalPages(response.data.totalPages);
+                setSizeCounts(response.data.sizeCounts || {});
             }
         } catch (error) {
             console.error("Error fetching orders:", error);
@@ -40,9 +50,24 @@ export default function DashboardPage() {
         fetchOrders();
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem("auth");
+        router.push("/login");
+    };
+
     return (
         <div className="container mx-auto px-4 py-10">
-            <h1 className="text-3xl font-bold mb-6 text-blue-600">Jersey 2025 Dashboard</h1>
+            {/* Header */}
+            <div className="flex justify-between items-center mb-6">
+                <h1 className="text-3xl font-bold text-blue-600">Jersey 2025 Dashboard</h1>
+                <button
+                    onClick={handleLogout}
+                    className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg shadow"
+                >
+                    <FiLogOut size={18} />
+                    Logout
+                </button>
+            </div>
 
             {/* Search Bar */}
             <form onSubmit={handleSearch} className="flex items-center gap-3 mb-6">
@@ -63,6 +88,28 @@ export default function DashboardPage() {
                     Search
                 </button>
             </form>
+
+            {/* Size Count Card */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-6">
+                {Object.keys(sizeCounts).length === 0 ? (
+                    <p className="text-gray-500 col-span-full text-center">No size data available.</p>
+                ) : (
+                    Object.entries(sizeCounts).map(([size, data]) => (
+                        <div
+                            key={size}
+                            className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex flex-col items-center justify-center shadow"
+                        >
+                            <p className="text-gray-500 text-sm">Size</p>
+                            <p className="text-xl font-bold">{size}</p>
+                            <p className="text-gray-700 mt-1 text-sm">
+                                Short: {data.short} | Long: {data.long}
+                            </p>
+                            <p className="text-gray-700 mt-1 font-medium">Total: {data.total}</p>
+                        </div>
+                    ))
+                )}
+            </div>
+
 
             {/* Table */}
             <div className="bg-white shadow-lg rounded-lg overflow-x-auto border border-gray-200">
@@ -156,5 +203,7 @@ export default function DashboardPage() {
                 </button>
             </div>
         </div>
-    );
+    )
 }
+
+export default Dashboard

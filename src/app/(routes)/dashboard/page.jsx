@@ -122,6 +122,7 @@ const Dashboard = () => {
                             <th className="px-4 py-3">Phone</th>
                             <th className="px-4 py-3">Email</th>
                             <th className="px-4 py-3">Jersey No</th>
+                            <th className="px-4 py-3">Display Name</th>
                             <th className="px-4 py-3">Size</th>
                             <th className="px-4 py-3">Payment</th>
                             <th className="px-4 py-3">Transaction ID</th>
@@ -145,6 +146,7 @@ const Dashboard = () => {
                                     <td className="px-4 py-3">{order.phone}</td>
                                     <td className="px-4 py-3">{order.email}</td>
                                     <td className="px-4 py-3">{order.jerseyNumber}</td>
+                                    <td className="px-4 py-3">{order.displayName || "-"}</td>
                                     <td className="px-4 py-3">{order.size}</td>
                                     <td className="px-4 py-3 capitalize">{order.payment_method}</td>
                                     <td className="px-4 py-3">{order.transactionId || "-"}</td>

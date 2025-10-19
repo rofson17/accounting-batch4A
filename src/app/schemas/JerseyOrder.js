@@ -30,6 +30,10 @@ const JerseyOrderSchema = new mongoose.Schema(
             required: [true, "Jersey number is required"],
             trim: true,
         },
+        displayName: {
+            type: String,
+            required: true,
+        },
         sleeves: {
             type: String,
             enum: ["short", "long"],

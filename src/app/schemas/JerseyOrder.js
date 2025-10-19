@@ -41,7 +41,7 @@ const JerseyOrderSchema = new mongoose.Schema(
         },
         size: {
             type: String,
-            enum: ["S", "M", "L", "XL", "XXL"],
+            enum: ["S", "M", "L", "XL", "2XL", "3XL"],
             required: [true, "Jersey size is required"],
         },
         payment_method: {

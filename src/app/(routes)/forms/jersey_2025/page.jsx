@@ -89,8 +89,14 @@ const Jersey_2025 = () => {
                         </div>
                         {/* Description & Details */}
                         <div className="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-lg shadow-sm mt-6 space-y-3">
-                            <p className="text-gray-700 italic text-center leading-relaxed">
-                                "A departmental jersey symbolizes unity, pride, and identity — a meaningful keepsake that celebrates teamwork and university memories."
+                            <p className="text-gray-700 italic text-center leading-relaxed text-sm">
+                                "আপনারা যে বর্তমান জার্সির ডিজাইন দেখছেন—এটি চূড়ান্ত নয়। ডিজাইনে পরিবর্তন আনা হবে, এবং সেই পরিবর্তন কার্যকর করতে আমাদের ডিজাইন কোম্পানিকে অগ্রিম পেমেন্ট করতে হবে। নির্ধারিত সময়ের মধ্যে আমি চেষ্টা করব এমন একটি আপডেটেড ডিজাইন চূড়ান্ত করতে, যা আমাদের ডিপার্টমেন্টের থিমের সাথে সামঞ্জস্যপূর্ণ এবং সবার জন্য আকর্ষণীয় হবে।
+                                <br />
+                                <span className="text-red-500">
+                                    স্পোর্টস টিমের সদস্যদের জন্য জার্সি সংগ্রহ বাধ্যতামূলক।
+                                </span>
+                                আমরা আশা করি, আমরা সবাই একসাথে জার্সির মাধ্যমে আমাদের ডিপার্টমেন্ট এবং আমাদের সেকশনকে আরও শক্তিশালীভাবে উপস্থাপন করতে পারব।"
+
                             </p>
 
                             <div className="text-gray-800 text-sm mt-4 space-y-2">
@@ -101,7 +107,7 @@ const Jersey_2025 = () => {
                                     <li>Full Sleeves — <span className="font-bold">550 Taka</span></li>
                                 </ul>
                                 <p className="text-red-600 font-semibold mt-3 text-center">
-                                    Deadline: 25-10-2025
+                                    Deadline: 14-11-2025
                                 </p>
                             </div>
                         </div>
@@ -264,7 +270,6 @@ const Jersey_2025 = () => {
                             )}
                         </div>
 
-                        {/* Submit */}
                         <div className="mt-8 flex justify-center">
                             <button
                                 type="submit"
@@ -281,4 +286,4 @@ const Jersey_2025 = () => {
     )
 }
 
-export default Jersey_2025;
+export default Jersey_2025

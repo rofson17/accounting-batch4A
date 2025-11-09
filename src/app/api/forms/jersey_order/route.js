@@ -1,4 +1,4 @@
-import JerseyOrder from "@/app/schemas/JerseyOrder";
+import JerseyOrder from "@/schemas/JerseyOrder";
 import dbConnect from "@/utils/connectdb";
 import { NextResponse } from "next/server"
 

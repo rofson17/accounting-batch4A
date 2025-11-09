@@ -1,12 +1,12 @@
 [
     {
-        "src": "https://dummyimage.com/500x300",
+        "src": "/images/gallery/1.jpg",
         "width": 500,
         "height": 300,
         "alt": "Gallery image 1"
     },
     {
-        "src": "https://dummyimage.com/501x301",
+        "src": "/images/gallery/2.jpg",
         "width": 501,
         "height": 301,
         "alt": "Gallery image 2"
@@ -22,12 +22,6 @@
         "width": 601,
         "height": 361,
         "alt": "Gallery image 4"
-    },
-    {
-        "src": "https://dummyimage.com/502x302",
-        "width": 502,
-        "height": 302,
-        "alt": "Gallery image 5"
     },
     {
         "src": "https://dummyimage.com/502x302",

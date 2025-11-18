@@ -13,6 +13,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { IoCameraOutline } from "react-icons/io5";
 import { GiClothes } from "react-icons/gi";
+import { redirect } from "next/navigation";
 
 // validation schema
 const schema = yup.object().shape({
@@ -42,10 +43,14 @@ const schema = yup.object().shape({
 });
 
 const Jersey_2025 = () => {
+    redirect('/error_pages');
+
     const [screenshot, setScreenShot] = useState(null);
     const methods = useForm({ resolver: yupResolver(schema) });
     const { watch, handleSubmit, formState, setValue } = methods;
     const selectedPayment = watch("payment_method");
+
+
 
     const onSubmit = async (data) => {
         try {

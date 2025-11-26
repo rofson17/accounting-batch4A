@@ -106,7 +106,7 @@ const Home = () => {
                 </button>
             </div>
 
-            {/* <motion.section
+            <motion.section
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -114,22 +114,19 @@ const Home = () => {
                 className="text-center mt-12 px-4"
             >
                 <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4">
-                    Accounting Department Jersey 2025
+                    Principal Of Accounting Presentation
                 </h1>
                 <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                    The <span className="font-semibold text-blue-600">Department of Accounting</span> is proud to
-                    introduce this year’s exclusive{" "}
-                    <span className="font-semibold">Jersey Collection</span> — made for unity, pride, and style.
-                    Customize your own jersey and be part of our departmental identity.
+                    আপনারা যারা অফলাইনে প্রেজেন্টেশন দিতে আগ্রহী তারা আগামী ২৮ তারিখ রাত্রি ১২ ঘটিকার মধ্যে ওয়েবসাইটে প্রেজেন্টেশনটি আপলোড করে দিবেন।
                 </p>
 
                 <Link
-                    href="/forms/jersey_2025"
+                    href="/forms/presentation_acc"
                     className="inline-block mt-8 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
                 >
-                    Order Your Jersey Now
+                    Upload Presentation
                 </Link>
-            </motion.section> */}
+            </motion.section>
 
             <motion.section
                 variants={cardContainer}

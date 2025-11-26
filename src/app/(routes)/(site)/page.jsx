@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaCalculator, FaUsers, FaTshirt } from "react-icons/fa";
+import { FaCalculator, FaUsers } from "react-icons/fa";
+import { MdSportsBasketball } from "react-icons/md";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import slides from "@/utils/slides.json";
 import Link from "next/link";
@@ -30,9 +31,9 @@ const Home = () => {
             text: "Join your batchmates and represent your department with pride and teamwork.",
         },
         {
-            icon: <FaTshirt className="mx-auto text-green-600 mb-4" size={50} />,
-            title: "Custom Fit",
-            text: "Choose your name, number, and size — each jersey is made just for you.",
+            icon: <MdSportsBasketball className="mx-auto text-green-600 mb-4" size={50} />,
+            title: "Sports Activity",
+            text: "Dedicated to showcasing our department’s sports spirit, competitions, and athletic excellence",
         },
     ];
 

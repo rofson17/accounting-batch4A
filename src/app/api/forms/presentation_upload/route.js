@@ -11,7 +11,10 @@ export const GET = async (req) => {
 
         const searchCondition = query
             ? {
-                studentId: { $regex: query, $options: "i" },
+                $or: [
+                    { name: { $regex: query, $options: "i" } },
+                    { studentId: { $regex: query, $options: "i" } },
+                ]
             }
             : {};
 

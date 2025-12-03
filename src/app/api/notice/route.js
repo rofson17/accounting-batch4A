@@ -1,89 +1,85 @@
-import Presentation from "@/schemas/Presentation";
+import Notice from "@/schemas/Notice";
 import dbConnect from "@/utils/connectdb";
 import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
     try {
         await dbConnect();
-
         const { searchParams } = new URL(req.url);
         const query = searchParams.get("query") || "";
+        const limit = parseInt(searchParams.get("latest")) || 0; //1 means first notice Latest and 0 means all notice
 
         const searchCondition = query
             ? {
                 $or: [
                     { name: { $regex: query, $options: "i" } },
                     { studentId: { $regex: query, $options: "i" } },
-                ]
+                ],
             }
             : {};
 
-        const presentations = await Presentation.find(searchCondition)
-            .sort({ createdAt: -1 });
+        let noticesQuery = Notice.find(searchCondition).sort({ createdAt: -1 });
+
+        if (limit > 0) noticesQuery = noticesQuery.limit(limit);
+
+        const notices = await noticesQuery;
 
         return NextResponse.json({
             success: true,
-            presentations,
-            total: presentations.length,
+            notices,
+            total: notices.length,
         })
+
     } catch (error) {
-        console.error("Error fetching presentations:", error);
-        return NextResponse.json(
-            { success: false, message: "Failed to fetch data" },
-            { status: 500 }
-        )
+        // console.log(error);
+        return NextResponse.json({ success: false, message: "Server error" }, { status: 500 });
     }
 }
+
 
 export const POST = async (req) => {
     try {
         await dbConnect();
-        const data = await req.json();
+        const { title, notice, linkText, link, deadline } = await req.json();
 
-        const { studentId, presentationFile, name } = data;
-
-        if (!studentId || !presentationFile || !name) {
+        if (!title || !notice) {
             return NextResponse.json(
                 {
                     success: false,
-                    message: "Student ID and presentation file are required",
+                    message: "title and notice are required",
                 },
                 { status: 400 }
-            );
+            )
         }
 
-        const entry = await Presentation.create({
-            name,
-            studentId,
-            presentationFile,
+        const notices = await Notice.create({
+            title,
+            notice,
+            linkText,
+            link,
+            deadline
         });
 
         return NextResponse.json(
             {
                 success: true,
                 message: "Presentation submitted!",
-                entry,
+                notices,
             },
             { status: 201 }
-        );
+        )
     } catch (error) {
-        console.error("Upload error:", error);
-        return NextResponse.json(
-            {
-                success: false,
-                message: "Server error",
-                error: error.message,
-            },
-            { status: 500 }
-        );
+        console.log(error.message);
+
+        return NextResponse.json({ success: false, message: "Server error" }, { status: 500 })
     }
 }
-
 
 
 export const DELETE = async (req) => {
     try {
         await dbConnect();
+
         const { searchParams } = new URL(req.url);
         const id = searchParams.get("id");
 
@@ -91,27 +87,24 @@ export const DELETE = async (req) => {
             return NextResponse.json(
                 { success: false, message: "ID is required" },
                 { status: 400 }
-            );
+            )
         }
 
-        const deleted = await Presentation.findByIdAndDelete(id);
+        const deleted = await Notice.findByIdAndDelete(id);
 
         if (!deleted) {
             return NextResponse.json(
-                { success: false, message: "Presentation not found" },
+                { success: false, message: "Notice not found" },
                 { status: 404 }
             )
         }
 
         return NextResponse.json(
-            { success: true, message: "Presentation deleted successfully" },
+            { success: true, message: "Notice deleted successfully" },
             { status: 200 }
         )
+
     } catch (error) {
-        console.error("Delete error:", error);
-        return NextResponse.json(
-            { success: false, message: "Server error", error: error.message },
-            { status: 500 }
-        );
+        return NextResponse.json({ success: false, message: "Server error" }, { status: 500 })
     }
 }

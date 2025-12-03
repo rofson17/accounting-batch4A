@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function POST(req) {
+export const POST = async (req) => {
     try {
         const { username, password } = await req.json();
 
@@ -17,7 +17,7 @@ export async function POST(req) {
             { status: 401 }
         );
     } catch (error) {
-        console.error("Login error:", error);
+        //console.error("Login error:", error);
         return NextResponse.json({ success: false, message: "Server error" }, { status: 500 });
     }
 }

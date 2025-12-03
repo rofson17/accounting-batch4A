@@ -79,7 +79,7 @@ const Dashboard = () => {
 
 
     return (
-        <div className="container mx-auto px-4 py-10">
+        <div className="w-[80%] px-4 py-10">
             {/* Header */}
 
             <div className="flex gap-3 justify-end mb-4">
@@ -120,14 +120,14 @@ const Dashboard = () => {
             </form>
 
             {/* Size Count Card */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6">
                 {Object.keys(sizeCounts).length === 0 ? (
                     <p className="text-gray-500 col-span-full text-center">No size data available.</p>
                 ) : (
                     Object.entries(sizeCounts).map(([size, data]) => (
                         <div
                             key={size}
-                            className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex flex-col items-center justify-center shadow"
+                            className="bg-blue-50 border border-blue-200 rounded-lg p-2 flex flex-col items-center justify-center shadow"
                         >
                             <p className="text-gray-500 text-sm">Size</p>
                             <p className="text-xl font-bold">{size}</p>

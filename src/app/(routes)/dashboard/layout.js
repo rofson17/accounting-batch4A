@@ -1,15 +1,13 @@
 "use client";
 import DashboardSidebar from "@/components/DashboardSidebar";
 
-const DashboardLayout = ({ children }) => {
-    return (
-        <div className="flex">
-            <DashboardSidebar />
-            <div className="flex-1 md:ml-64 ml-20  p-4">
-                {children}
-            </div>
-        </div>
-    );
-};
+const DashboardLayout = ({ children }) => (
+    <div className="flex">
+        <DashboardSidebar />
+        <main className="flex-1 p-4 transition-all duration-300 md:ml-40  ml-0" >
+            {children}
+        </main>
+    </div>
+)
 
-export default DashboardLayout;
+export default DashboardLayout

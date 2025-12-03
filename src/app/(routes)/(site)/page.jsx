@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import slides from "@/utils/slides.json";
 import Link from "next/link";
 import Image from "next/image";
+import Notice from "@/components/Notice";
 
 const Home = () => {
     const [current, setCurrent] = useState(0);
@@ -106,8 +107,8 @@ const Home = () => {
                     <ChevronRight size={28} />
                 </button>
             </div>
-
-            <motion.section
+            {/* notice board */}
+            {/* <motion.section
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -127,8 +128,8 @@ const Home = () => {
                 >
                     Upload Presentation
                 </Link>
-            </motion.section>
-
+            </motion.section> */}
+            <Notice />
             <motion.section
                 variants={cardContainer}
                 initial="hidden"

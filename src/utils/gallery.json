@@ -1,0 +1,32 @@
+[
+    {
+        "src": "/images/gallery/1.jpg",
+        "width": 500,
+        "height": 300,
+        "alt": "Gallery image 1"
+    },
+    {
+        "src": "/images/gallery/2.jpg",
+        "width": 501,
+        "height": 301,
+        "alt": "Gallery image 2"
+    },
+    {
+        "src": "https://dummyimage.com/600x360",
+        "width": 600,
+        "height": 360,
+        "alt": "Gallery image 3"
+    },
+    {
+        "src": "https://dummyimage.com/601x361",
+        "width": 601,
+        "height": 361,
+        "alt": "Gallery image 4"
+    },
+    {
+        "src": "https://dummyimage.com/502x302",
+        "width": 502,
+        "height": 302,
+        "alt": "Gallery image 5"
+    }
+]

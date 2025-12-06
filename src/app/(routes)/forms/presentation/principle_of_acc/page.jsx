@@ -26,7 +26,7 @@ const Presentation_ACC = () => {
 
     const onSubmit = async (data) => {
         try {
-            const res = await axios.post("/api/forms/presentation_upload", data);
+            const res = await axios.post("/api/forms/presentation/principle_of_acc", data);
 
             if (res.status === 201) {
                 toast.success("Uploaded successfully");

@@ -2,13 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaCalculator, FaUsers } from "react-icons/fa";
-import { MdSportsBasketball } from "react-icons/md";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cards } from "@/utils/Cards";
 import slides from "@/utils/slides.json";
-import Link from "next/link";
 import Image from "next/image";
 import Notice from "@/components/Notice";
+
 
 const Home = () => {
     const [current, setCurrent] = useState(0);
@@ -19,24 +18,6 @@ const Home = () => {
         offset: ["start start", "end start"],
     });
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-
-    const cards = [
-        {
-            icon: <FaCalculator className="mx-auto text-blue-600 mb-4" size={50} />,
-            title: "For Accountants",
-            text: "Designed especially for Accounting students — smart, stylish, and professional.",
-        },
-        {
-            icon: <FaUsers className="mx-auto text-purple-600 mb-4" size={50} />,
-            title: "Show Unity",
-            text: "Join your batchmates and represent your department with pride and teamwork.",
-        },
-        {
-            icon: <MdSportsBasketball className="mx-auto text-green-600 mb-4" size={50} />,
-            title: "Sports Activity",
-            text: "Dedicated to showcasing our department’s sports spirit, competitions, and athletic excellence",
-        },
-    ];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -51,17 +32,17 @@ const Home = () => {
     const heroText = {
         hidden: { opacity: 0, y: 40 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-    };
+    }
 
     const cardContainer = {
         hidden: {},
         visible: { transition: { staggerChildren: 0.15 } },
-    };
+    }
 
     const cardItem = {
         hidden: { opacity: 0, scale: 0.9, y: 30 },
         visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-    };
+    }
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-50">
@@ -137,9 +118,9 @@ const Home = () => {
                 viewport={{ once: true }}
                 className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-3 gap-8"
             >
-                {cards.map((card, idx) => (
+                {cards.map((card, index) => (
                     <motion.div
-                        key={idx}
+                        key={index}
                         variants={cardItem}
                         className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-2xl hover:-translate-y-1 transition"
                     >

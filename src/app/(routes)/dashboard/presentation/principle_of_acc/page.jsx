@@ -5,7 +5,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { MdOutlineFileDownload } from "react-icons/md";
 import toast from "react-hot-toast";
 
-const Presentation = () => {
+const PrincipleOfAcc = () => {
     const [presentations, setPresentations] = useState([]);
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(false);
@@ -13,7 +13,7 @@ const Presentation = () => {
     const fetchPresentations = async (query = "") => {
         try {
             setLoading(true);
-            const res = await axios.get(`/api/forms/presentation_upload?query=${query}`);
+            const res = await axios.get(`/api/forms/presentation/principle_of_acc?query=${query}`);
             if (res.data.success) setPresentations(res.data.presentations);
             setLoading(false);
         } catch (error) {
@@ -31,7 +31,7 @@ const Presentation = () => {
     const handleDelete = async (id) => {
         if (!confirm("Are you sure you want to delete this presentation?")) return;
         try {
-            const res = await axios.delete(`/api/forms/presentation_upload?id=${id}`);
+            const res = await axios.delete(`/api/forms/presentation/principle_of_acc?id=${id}`);
             if (res.data.success) {
                 toast.success("Deleted successfully");
                 setPresentations((prev) => prev.filter((p) => p._id !== id));
@@ -40,7 +40,7 @@ const Presentation = () => {
             console.error("Delete error:", error);
             toast.error("Server error while deleting");
         }
-    };
+    }
 
     const downloadFile = async (url, studentId) => {
         try {
@@ -146,4 +146,4 @@ const Presentation = () => {
     )
 }
 
-export default Presentation;
+export default PrincipleOfAcc;

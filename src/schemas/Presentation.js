@@ -16,7 +16,7 @@ const PresentationSchema = new mongoose.Schema(
         },
     },
     { timestamps: true }
-);
+)
 
 export default mongoose.models.Presentation ||
-    mongoose.model("Presentation", PresentationSchema);
+    mongoose.model("Presentation", PresentationSchema)

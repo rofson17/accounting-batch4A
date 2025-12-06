@@ -31,10 +31,10 @@ const Gallery = () => {
                 {/* mosaic grid */}
                 <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[200px] md:auto-rows-[250px] lg:auto-rows-[300px]">
 
-                    {galleryImages.map((img, idx) => {
+                    {galleryImages.map((img, index) => {
                         let spanClass = "";
 
-                        if (idx === 0) {
+                        if (index === 0) {
                             // big image left
                             spanClass =
                                 "md:col-span-4 lg:col-span-3 lg:row-span-2 md:row-span-2";
@@ -45,7 +45,7 @@ const Gallery = () => {
 
                         return (
                             <div
-                                key={idx}
+                                key={index}
                                 className={`relative group overflow-hidden rounded-2xl shadow-md hover:shadow-xl ${spanClass}`}
                             >
                                 <Image

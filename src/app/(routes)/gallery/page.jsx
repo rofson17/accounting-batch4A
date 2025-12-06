@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaDownload } from "react-icons/fa";
 import galleryImages from "@/utils/gallery.json";
 
+
 const Gallery = () => {
     const handleDownload = async (src, name) => {
         try {

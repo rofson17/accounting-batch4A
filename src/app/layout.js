@@ -10,7 +10,10 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
-  title: " BBA in Accounting-4A",
+  title: {
+    default: "Accounting-4A",
+    template: "Accounting 4A- %s"
+  },
   description: "Explore details about Daffodil International University BBA Accounting program, Batch 4 Section A and student information.",
   keywords: [
     "Daffodil International University",

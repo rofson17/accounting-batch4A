@@ -1,3 +1,6 @@
+export const metadata = { title: "About" }
+
+
 const About = () => {
     return (
         <section className="text-gray-700 body-font bg-gray-50 py-16">

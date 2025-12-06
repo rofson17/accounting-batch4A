@@ -1,5 +1,6 @@
-"use client";
 import DashboardSidebar from "@/components/DashboardSidebar";
+
+export const metadata = { title: "Dashboard" }
 
 const DashboardLayout = ({ children }) => (
     <div className="flex">

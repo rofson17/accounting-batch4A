@@ -53,11 +53,7 @@ const PresentationIct = () => {
         name: "members",
     })
 
-    Swal.fire({
-        title: "Presentation Submited!",
-        text: "দুশ্চিন্তা করে কারো কাছে যাওয়ার দরকার নেই, সাবমিট হয়ে গিয়েছে 🥴",
-        icon: "success"
-    })
+
     const onSubmit = async (data) => {
         try {
             const res = await axios.post("/api/forms/presentation/ict_in_business_app", data);

@@ -12,21 +12,39 @@
         "alt": "Gallery image 2"
     },
     {
-        "src": "https://dummyimage.com/600x360",
+        "src": "/images/gallery/3.jpeg",
         "width": 600,
         "height": 360,
         "alt": "Gallery image 3"
     },
     {
-        "src": "https://dummyimage.com/601x361",
+        "src": "/images/gallery/4.jpeg",
         "width": 601,
         "height": 361,
         "alt": "Gallery image 4"
     },
     {
-        "src": "https://dummyimage.com/502x302",
+        "src": "/images/gallery/5.jpeg",
         "width": 502,
         "height": 302,
         "alt": "Gallery image 5"
+    },
+    {
+        "src": "/images/gallery/6.jpeg",
+        "width": 502,
+        "height": 302,
+        "alt": "Gallery image 7"
+    },
+    {
+        "src": "/images/gallery/7.jpeg",
+        "width": 502,
+        "height": 302,
+        "alt": "Gallery image 7"
+    },
+    {
+        "src": "/images/gallery/8.jpeg",
+        "width": 502,
+        "height": 302,
+        "alt": "Gallery image 8"
     }
 ]

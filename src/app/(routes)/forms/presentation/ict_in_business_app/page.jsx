@@ -14,6 +14,7 @@ import {
     FiTrash2,
     FiUpload
 } from "react-icons/fi"
+import Swal from "sweetalert2";
 
 
 const schema = yup.object().shape({
@@ -52,13 +53,22 @@ const PresentationIct = () => {
         name: "members",
     })
 
+    Swal.fire({
+        title: "Presentation Submited!",
+        text: "দুশ্চিন্তা করে কারো কাছে যাওয়ার দরকার নেই, সাবমিট হয়ে গিয়েছে 🥴",
+        icon: "success"
+    })
     const onSubmit = async (data) => {
         try {
             const res = await axios.post("/api/forms/presentation/ict_in_business_app", data);
 
             if (res.status === 201) {
 
-                toast.success("Group Presentation Uploaded");
+                Swal.fire({
+                    title: "Presentation Submited!",
+                    text: "দুশ্চিন্তা করে কারো কাছে যাওয়ার দরকার নেই, সাবমিট হয়ে গিয়েছে 🥴",
+                    icon: "success"
+                })
                 methods.reset();
                 setUploadedFile(null);
             }

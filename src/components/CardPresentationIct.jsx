@@ -32,7 +32,7 @@ const CardPresentaionIct = ({ group, onDelete }) => {
                         <tbody>
                             {group.members.map((m, index) => (
                                 <tr key={index} className="border-b last:border-b-0">
-                                    <td className="py-1 font-medium">{index}.</td>
+                                    <td className="py-1 font-medium">{index + 1}.</td>
                                     <td className="px-2 py-1 font-medium">{m.name}</td>
                                     <td className="px-2 py-1 text-blue-500 text-sm">{m.studentId}</td>
                                 </tr>

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Home, FileText, Menu, X } from "lucide-react";
 import { VscJersey } from "react-icons/vsc";
+import { IoMdHappy } from "react-icons/io";
 import presentations from "@/utils/presentations.json"
 import { useState } from "react";
 import clsx from "clsx";
@@ -37,7 +38,10 @@ const DashboardSidebar = () => {
                         <VscJersey className="w-5 h-5" />
                         <span className="text-sm">Jersey Order</span>
                     </Link>
-
+                    <Link href="/dashboard/picnic" className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded">
+                        <IoMdHappy className="w-5 h-5" />
+                        <span className="text-sm">Picnic </span>
+                    </Link>
                     {/* Dropdown */}
                     <div className="flex flex-col">
                         <button

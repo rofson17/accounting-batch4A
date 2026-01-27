@@ -248,7 +248,7 @@ const Picnic = () => {
                 </h3>
 
                 <ul className="space-y-3 text-gray-700">
-                    <li>• Picnic fee must be paid before <strong>20 March</strong>.</li>
+                    <li>• Picnic fee must be paid before <strong>30 January, 2026</strong>.</li>
                     <li>• Cash payments should be submitted to <span className="text-red-500"> Md. Rofson Jame Abu Siam</span></li>
                     <li>• For bKash payment, use the official number only.</li>
                     <li>• Make sure the <strong>Transaction ID</strong> is correct.</li>

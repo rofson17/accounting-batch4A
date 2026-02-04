@@ -83,7 +83,6 @@ const Picnic = () => {
 
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
-                            {/* Name */}
                             <div>
                                 <label className="block font-medium mb-1">Name</label>
                                 <input
@@ -99,7 +98,7 @@ const Picnic = () => {
                                 )}
                             </div>
 
-                            {/* Student ID */}
+
                             <div>
                                 <label className="block font-medium mb-1">Student ID</label>
                                 <input
@@ -115,7 +114,6 @@ const Picnic = () => {
                                 )}
                             </div>
 
-                            {/* Amount */}
                             <div>
                                 <label className="block font-medium mb-1">Amount</label>
                                 <input
@@ -131,7 +129,6 @@ const Picnic = () => {
                                 )}
                             </div>
 
-                            {/* Payment Method */}
                             <div>
                                 <label className="block font-medium mb-2">Payment Method</label>
                                 <div className="flex gap-6">
@@ -161,10 +158,10 @@ const Picnic = () => {
                                 )}
                             </div>
 
-                            {/* bKash Fields */}
+
                             {payment_method === "bkash" && (
                                 <>
-                                    {/* Transaction ID */}
+
                                     <div>
                                         <label className="block font-medium mb-1">
                                             Transaction ID
@@ -182,7 +179,6 @@ const Picnic = () => {
                                         )}
                                     </div>
 
-                                    {/* Screenshot Upload */}
                                     <div>
                                         <label className="block font-medium mb-2">
                                             Payment Screenshot
@@ -228,7 +224,7 @@ const Picnic = () => {
                                 </>
                             )}
 
-                            {/* Submit */}
+
                             <button
                                 type="submit"
                                 disabled={formState.isSubmitting}

@@ -89,8 +89,11 @@ const Picnic = () => {
             <h1 className="text-2xl ml:text-3xl font-bold mb-4">Payment Records</h1>
             <h3 className="text-lg text-blue-500 mb-2 font-semibold">Total Students- {students}</h3>
 
-            <div className="mb-4 font-bold text-lg">
+            <div className="mb-1 font-bold text-lg">
                 Total Amount: ৳ {payments.reduce((sum, p) => sum + p.amount, 0)}
+            </div>
+            <div className="mb-4 font-bold text-lg">
+                Paid Amount: ৳ {payments.filter(item => item.status === "paid").reduce((sum, item) => sum + item.amount, 0)}
             </div>
             <input
                 type="text"

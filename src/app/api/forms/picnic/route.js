@@ -55,7 +55,7 @@ export const GET = async (req) => {
             : {};
 
         const payments = await Picnic.find(searchCondition).sort({ createdAt: -1 });
-        console.log(payments);
+        // console.log(payments);
 
 
         return NextResponse.json({

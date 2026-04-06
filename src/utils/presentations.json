@@ -1,10 +1,14 @@
 [
     {
-        "title": "Principle of Accounting",
+        "title": "Principles of Accounting",
         "href": "/dashboard/presentation/principle_of_acc"
     },
     {
         "title": "ICT in Business App",
         "href": "/dashboard/presentation/ict_in_business_app"
+    },
+    {
+        "title": "Principles of Management",
+        "href": "/dashboard/presentation/principles-of-management"
     }
 ]

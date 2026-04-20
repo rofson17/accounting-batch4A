@@ -18,7 +18,7 @@ const PresentationManagement = () => {
             setLoading(true);
 
             const res = await axios.get(
-                `/api/forms/presentation/principles_of_management?query=${query}`
+                `/api/forms/presentation/micro-economics?query=${query}`
             );
 
             if (res.data.success) {
@@ -59,7 +59,7 @@ const PresentationManagement = () => {
         try {
 
             const res = await axios.delete(
-                `/api/forms/presentation/principles_of_management?id=${id}`
+                `/api/forms/presentation/micro-economics?id=${id}`
             );
 
             if (res.data.success) {
@@ -89,7 +89,7 @@ const PresentationManagement = () => {
         <div className="p-4 max-w-full">
 
             <h1 className="text-2xl font-bold mb-4 text-center sm:text-left">
-                Principles of Management Presentations
+                Micro-Economics Presentations
             </h1>
 
 

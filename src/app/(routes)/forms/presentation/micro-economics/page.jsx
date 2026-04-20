@@ -28,7 +28,7 @@ const PrincipleOfManagement = () => {
         try {
 
             const res = await axios.post(
-                "/api/forms/presentation/principles_of_management",
+                "/api/forms/presentation/micro-economics",
                 { ...data, fileUrl: data.file }
             );
             // console.log(res);
@@ -37,7 +37,7 @@ const PrincipleOfManagement = () => {
                 Swal.fire({
                     icon: "success",
                     title: "সফলভাবে জমা হয়েছে!",
-                    text: "এখন আসল management হলো ma'am মার্কস manage করা! 😄"
+                    text: "এখন আসল microeconomics শুরু—মার্কসের demand বাড়ানো আর risk minimize করা! 😄📊"
                 })
 
                 setFileUrl(null);
@@ -55,7 +55,7 @@ const PrincipleOfManagement = () => {
             <div className="container mx-auto max-w-lg p-6">
 
                 <h2 className="text-2xl font-bold mb-6">
-                    Upload Management Presentation
+                    Upload Micro-Economics Presentation
                 </h2>
 
                 <form

@@ -5,8 +5,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import CardPresentationManagement from "@/components/CardPresentationManagement";
 
-const PresentationManagement = () => {
 
+const Bmath = () => {
     const [groups, setGroups] = useState([]);
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ const PresentationManagement = () => {
             setLoading(true);
 
             const res = await axios.get(
-                `/api/forms/presentation/micro-economics?query=${query}`
+                `/api/forms/presentation/b-math?query=${query}`
             );
 
             if (res.data.success) {
@@ -33,7 +33,7 @@ const PresentationManagement = () => {
             setLoading(false);
 
         }
-    };
+    }
 
 
     useEffect(() => {
@@ -59,7 +59,7 @@ const PresentationManagement = () => {
         try {
 
             const res = await axios.delete(
-                `/api/forms/presentation/micro-economics?id=${id}`
+                `/api/forms/presentation/b-math?id=${id}`
             );
 
             if (res.data.success) {
@@ -85,11 +85,13 @@ const PresentationManagement = () => {
     }
 
 
+
+
     return (
         <div className="p-4 max-w-full">
 
             <h1 className="text-2xl font-bold mb-4 text-center sm:text-left">
-                Micro-Economics Presentations
+                Business Mathematics Presentations
             </h1>
 
 
@@ -136,4 +138,4 @@ const PresentationManagement = () => {
     )
 }
 
-export default PresentationManagement
+export default Bmath;

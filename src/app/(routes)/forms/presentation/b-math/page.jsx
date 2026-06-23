@@ -55,7 +55,7 @@ const Bmath = () => {
             <div className="container mx-auto max-w-lg p-6">
 
                 <h2 className="text-2xl font-bold mb-6">
-                    Upload Micro-Economics Presentation
+                    Upload Business Mathemathics Presentation
                 </h2>
 
                 <form
